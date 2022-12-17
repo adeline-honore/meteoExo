@@ -24,21 +24,51 @@
             </objects>
             <point key="canvasLocation" x="-891" y="-6"/>
         </scene>
-        <!--View Controller-->
+        <!--Home View Controller-->
         <scene sceneID="JOa-TM-fFq">
             <objects>
-                <viewController id="qTo-qA-Vzz" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="GuO-np-kpw">
+                <viewController id="qTo-qA-Vzz" customClass="HomeViewController" customModule="Meteo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GuO-np-kpw" customClass="HomeView" customModule="Meteo" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="vHL-CO-1f1">
+                                <rect key="frame" x="50" y="384" width="314" height="128"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="2LS-hs-cm2"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cHa-vR-StQ">
+                                <rect key="frame" x="60" y="731" width="294" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Charger la météo"/>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="tw3-Sh-bc3"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vHL-CO-1f1" firstAttribute="centerY" secondItem="GuO-np-kpw" secondAttribute="centerY" id="4Og-Pq-8Ej"/>
+                            <constraint firstItem="vHL-CO-1f1" firstAttribute="leading" secondItem="tw3-Sh-bc3" secondAttribute="leading" constant="50" id="Dq4-87-XCa"/>
+                            <constraint firstItem="cHa-vR-StQ" firstAttribute="leading" secondItem="tw3-Sh-bc3" secondAttribute="leading" constant="60" id="IN1-R2-7SW"/>
+                            <constraint firstAttribute="trailing" secondItem="cHa-vR-StQ" secondAttribute="trailing" constant="60" id="QBk-L5-CP4"/>
+                            <constraint firstItem="tw3-Sh-bc3" firstAttribute="bottom" secondItem="cHa-vR-StQ" secondAttribute="bottom" constant="100" id="cvF-uz-gcf"/>
+                            <constraint firstItem="vHL-CO-1f1" firstAttribute="centerX" secondItem="GuO-np-kpw" secondAttribute="centerX" id="kb0-Or-Lfd"/>
+                        </constraints>
+                        <connections>
+                            <outlet property="loadButton" destination="cHa-vR-StQ" id="JGK-uN-DdT"/>
+                            <outlet property="textView" destination="vHL-CO-1f1" id="0KY-PS-QFJ"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="76z-pM-bYd"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H9Y-UH-vHh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="58" y="-6"/>
+            <point key="canvasLocation" x="57.971014492753625" y="-6.0267857142857144"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="pYO-PL-b14">
@@ -57,6 +87,9 @@
         </scene>
     </scenes>
     <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -9,10 +9,19 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
+    // MARK: - Properties
+    
+    private var homeView: HomeView!
+    
+    // MARK: - Init
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        homeView = view as? HomeView
+        homeView.textView.text = Texts.home.value
     }
     
 
+    // MARK: - Tap on load button
 }
