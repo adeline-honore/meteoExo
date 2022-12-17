@@ -10,6 +10,8 @@
 		6E6334A6294E71D500950EBA /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6334A5294E71D500950EBA /* HomeViewController.swift */; };
 		6E6334AB294E73CD00950EBA /* Texts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6334AA294E73CD00950EBA /* Texts.swift */; };
 		6E6334AD294E752C00950EBA /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6334AC294E752C00950EBA /* HomeView.swift */; };
+		6E6334B0294E798800950EBA /* DisplayMeteoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6334AF294E798800950EBA /* DisplayMeteoView.swift */; };
+		6E6334B2294E799B00950EBA /* DisplayMeteoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6334B1294E799B00950EBA /* DisplayMeteoViewController.swift */; };
 		6E908A5F294E6D310088FF2C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E908A5E294E6D310088FF2C /* AppDelegate.swift */; };
 		6E908A61294E6D310088FF2C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E908A60294E6D310088FF2C /* SceneDelegate.swift */; };
 		6E908A66294E6D310088FF2C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E908A64294E6D310088FF2C /* Main.storyboard */; };
@@ -41,6 +43,8 @@
 		6E6334A5294E71D500950EBA /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		6E6334AA294E73CD00950EBA /* Texts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Texts.swift; sourceTree = "<group>"; };
 		6E6334AC294E752C00950EBA /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		6E6334AF294E798800950EBA /* DisplayMeteoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayMeteoView.swift; sourceTree = "<group>"; };
+		6E6334B1294E799B00950EBA /* DisplayMeteoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayMeteoViewController.swift; sourceTree = "<group>"; };
 		6E908A5B294E6D310088FF2C /* Meteo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Meteo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E908A5E294E6D310088FF2C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6E908A60294E6D310088FF2C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -106,6 +110,15 @@
 			path = Texts;
 			sourceTree = "<group>";
 		};
+		6E6334AE294E795500950EBA /* DisplayMeteo */ = {
+			isa = PBXGroup;
+			children = (
+				6E6334AF294E798800950EBA /* DisplayMeteoView.swift */,
+				6E6334B1294E799B00950EBA /* DisplayMeteoViewController.swift */,
+			);
+			path = DisplayMeteo;
+			sourceTree = "<group>";
+		};
 		6E908A52294E6D310088FF2C = {
 			isa = PBXGroup;
 			children = (
@@ -129,6 +142,7 @@
 		6E908A5D294E6D310088FF2C /* Meteo */ = {
 			isa = PBXGroup;
 			children = (
+				6E6334AE294E795500950EBA /* DisplayMeteo */,
 				6E6334A9294E73B400950EBA /* Texts */,
 				6E6334A8294E72BC00950EBA /* Home */,
 				6E6334A7294E72AB00950EBA /* View */,
@@ -288,6 +302,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E6334B0294E798800950EBA /* DisplayMeteoView.swift in Sources */,
+				6E6334B2294E799B00950EBA /* DisplayMeteoViewController.swift in Sources */,
 				6E908A5F294E6D310088FF2C /* AppDelegate.swift in Sources */,
 				6E908A61294E6D310088FF2C /* SceneDelegate.swift in Sources */,
 				6E6334AB294E73CD00950EBA /* Texts.swift in Sources */,
