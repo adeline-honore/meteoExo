@@ -24,6 +24,10 @@ class DisplayMeteoViewController: UIViewController {
     private var weatherService: WeatherServiceProtocol = WeatherService(network: Network())
     private var infos: [InfoMeteo] = []
     
+    private var timerUnlimited: Timer = Timer()
+    private var timerUnlimitedMultiplier = 1
+    private var messageNumber: Int = 1
+    
     // MARK: - Init
     
     override func viewDidLoad() {
@@ -35,6 +39,9 @@ class DisplayMeteoViewController: UIViewController {
         
         startProgressView()
         startTimerForCity()
+        
+        startTimerUnlimited()
+        displayMeteoView.messageLabel.text = ""
         
         tableView.isHidden = true
         tableView.delegate = self
@@ -85,7 +92,6 @@ class DisplayMeteoViewController: UIViewController {
             break
         }
         timerCityMultiplier += 1
-        
     }
     
     private func getWeatherInformations(city: Int) {
@@ -116,6 +122,25 @@ class DisplayMeteoViewController: UIViewController {
     private func displayMeteoInfo() {
         tableView.isHidden = false
         tableView.reloadData()
+    }
+    
+    // MARK: - Unlimited timer
+    
+    private func startTimerUnlimited() {
+        timerUnlimited = Timer.scheduledTimer(timeInterval: 6.0, target: self, selector: #selector(self.runtimerUnlimited), userInfo: nil, repeats: true)
+    }
+    
+    @objc func runtimerUnlimited() {
+        if messageNumber == 1 {
+            displayMeteoView.messageLabel.text = Texts.unlimitedMessage1.value
+            messageNumber += 1
+        } else if messageNumber == 2 {
+            displayMeteoView.messageLabel.text = Texts.unlimitedMessage2.value
+            messageNumber += 1
+        } else if messageNumber == 3 {
+            displayMeteoView.messageLabel.text = Texts.unlimitedMessage3.value
+            messageNumber = 1
+        }
     }
 }
 
