@@ -17,6 +17,9 @@ class DisplayMeteoViewController: UIViewController {
     
     private var displayMeteoView: DisplayMeteoView!
     
+    private var timerForCity: Timer = Timer()
+    private var timerCityMultiplier = 1
+    
     
     // MARK: - Init
     
@@ -28,7 +31,10 @@ class DisplayMeteoViewController: UIViewController {
         displayMeteoView.startAgainButton.isHidden = true
         
         startProgressView()
+        startTimerForCity()
     }
+    
+    // MARK: - ProgressView
     
     private func startProgressView() {
         
@@ -37,4 +43,32 @@ class DisplayMeteoViewController: UIViewController {
         }
     }
     
+    // MARK: - Timer for cities
+    
+    private func startTimerForCity() {
+        timerForCity = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(self.runTimerForCity), userInfo: nil, repeats: true)
+    }
+    
+    @objc func runTimerForCity() {
+        
+        let interval = timerCityMultiplier * Int(timerForCity.timeInterval)
+                
+        switch interval {
+        case 10:
+            print(City.city10)
+        case 20:
+            print(City.city20)
+        case 30:
+            print(City.city30)
+        case 40:
+            print(City.city40)
+        case 50:
+            print(City.city50)
+        case 60:
+            timerForCity.invalidate()
+        default:
+            break
+        }
+        timerCityMultiplier += 1
+    }
 }
