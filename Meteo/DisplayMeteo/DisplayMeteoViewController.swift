@@ -34,19 +34,25 @@ class DisplayMeteoViewController: UIViewController {
         super.viewDidLoad()
         
         displayMeteoView = view as? DisplayMeteoView
-        displayMeteoView.progressView.progress = 0
-        displayMeteoView.startAgainButton.isHidden = true
-        
-        startProgressView()
-        startTimerForCity()
         
         startTimerUnlimited()
-        displayMeteoView.messageLabel.text = ""
+        displayMeteoView.messageLabel.text = "..."
         
-        tableView.isHidden = true
         tableView.delegate = self
         tableView.dataSource = self
         configureTableView()
+        
+        loadMeteoData()
+    }
+    
+    private func loadMeteoData() {
+        displayMeteoView.progressView.progress = 0
+        displayMeteoView.startAgainButton.isHidden = true
+        
+        tableView.isHidden = true
+        
+        startProgressView()
+        startTimerForCity()
     }
     
     private func configureTableView() {
@@ -58,7 +64,6 @@ class DisplayMeteoViewController: UIViewController {
     // MARK: - ProgressView
     
     private func startProgressView() {
-        
         UIProgressView.animate(withDuration: 60) {
             self.displayMeteoView.progressView.setProgress(1.0, animated: true)
         }
@@ -87,6 +92,8 @@ class DisplayMeteoViewController: UIViewController {
             getWeatherInformations(city: City.city50.id)
         case 60:
             timerForCity.invalidate()
+            displayMeteoView.progressView.isHidden = true
+            displayMeteoView.startAgainButton.isHidden = false
             displayMeteoInfo()
         default:
             break
@@ -141,6 +148,12 @@ class DisplayMeteoViewController: UIViewController {
             displayMeteoView.messageLabel.text = Texts.unlimitedMessage3.value
             messageNumber = 1
         }
+    }
+    
+    // MARK: - Start again button
+    
+    @IBAction func didTapStartAgainButton() {
+        loadMeteoData()
     }
 }
 
