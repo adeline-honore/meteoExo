@@ -17,10 +17,12 @@ class DisplayMeteoViewController: UIViewController {
     
     private var displayMeteoView: DisplayMeteoView!
     
+    private let defaultIcon = UIImage(systemName: "sun.min.fill")
+    
     private var timerForCity: Timer = Timer()
     private var timerCityMultiplier = 1
     private var weatherService: WeatherServiceProtocol = WeatherService(network: Network())
-    
+    private var infos: [InfoMeteo] = []
     
     // MARK: - Init
     
@@ -79,10 +81,24 @@ class DisplayMeteoViewController: UIViewController {
         weatherService.getData(city: city) { result in
             switch result {
             case .success(let weather):
-                print(weather)
+                self.infos.append(self.createInfoMeteo(weather: weather))
+                print(self.infos)
             case .failure(let error):
                 print(error)
             }
         }
+    }
+    
+    private func createInfoMeteo(weather: WeatherStructure) -> InfoMeteo {
+        InfoMeteo(cityName: weather.name, description: weather.weather.first?.description ?? "", temp: "\(kelvinToCelsius(kelvin:weather.main.temp))", icon:getInfoMetoIcon(icon: weather.weather.first?.icon ?? ""))
+    }
+    
+    private func kelvinToCelsius(kelvin: Double) -> String {
+        String(format:"%.1f", (kelvin - 273.15)) + " °C"
+    }
+    
+    private func getInfoMetoIcon(icon: String) -> UIImage {
+        guard let image = UIImage(named: String(icon)) else { return UIImage() }
+        return image
     }
 }
