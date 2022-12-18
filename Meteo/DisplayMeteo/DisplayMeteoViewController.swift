@@ -15,12 +15,26 @@ class DisplayMeteoViewController: UIViewController {
     
     // MARK: - Properties
     
+    private var displayMeteoView: DisplayMeteoView!
     
     
     // MARK: - Init
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        displayMeteoView = view as? DisplayMeteoView
+        displayMeteoView.progressView.progress = 0
+        displayMeteoView.startAgainButton.isHidden = true
+        
+        startProgressView()
+    }
+    
+    private func startProgressView() {
+        
+        UIProgressView.animate(withDuration: 60) {
+            self.displayMeteoView.progressView.setProgress(1.0, animated: true)
+        }
     }
     
 }

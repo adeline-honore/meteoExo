@@ -81,9 +81,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="2rI-25-Zih">
-                                <rect key="frame" x="60" y="758" width="294" height="4"/>
-                            </progressView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fZq-YR-vnj">
                                 <rect key="frame" x="60" y="731" width="294" height="31"/>
                                 <state key="normal" title="Button"/>
@@ -110,23 +107,26 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="e5g-Jn-c0l">
+                                <rect key="frame" x="60" y="738" width="294" height="4"/>
+                            </progressView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="l3p-X2-8qA"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="zZ5-2Q-YTY" firstAttribute="leading" secondItem="l3p-X2-8qA" secondAttribute="leading" constant="60" id="2am-zG-7au"/>
-                            <constraint firstItem="l3p-X2-8qA" firstAttribute="trailing" secondItem="2rI-25-Zih" secondAttribute="trailing" constant="60" id="602-MR-keh"/>
+                            <constraint firstItem="l3p-X2-8qA" firstAttribute="bottom" secondItem="e5g-Jn-c0l" secondAttribute="bottom" constant="120" id="3lY-vv-fDC"/>
                             <constraint firstItem="fZq-YR-vnj" firstAttribute="leading" secondItem="l3p-X2-8qA" secondAttribute="leading" constant="60" id="6pc-5f-ujy"/>
                             <constraint firstItem="l3p-X2-8qA" firstAttribute="trailing" secondItem="zZ5-2Q-YTY" secondAttribute="trailing" constant="60" id="7aV-pS-5kV"/>
                             <constraint firstItem="l3p-X2-8qA" firstAttribute="bottom" secondItem="fZq-YR-vnj" secondAttribute="bottom" constant="100" id="7dW-ph-Uls"/>
-                            <constraint firstItem="2rI-25-Zih" firstAttribute="leading" secondItem="l3p-X2-8qA" secondAttribute="leading" constant="60" id="Sfe-ms-3MZ"/>
-                            <constraint firstItem="l3p-X2-8qA" firstAttribute="bottom" secondItem="2rI-25-Zih" secondAttribute="bottom" constant="100" id="Xxu-A6-tdY"/>
                             <constraint firstItem="l3p-X2-8qA" firstAttribute="trailing" secondItem="fZq-YR-vnj" secondAttribute="trailing" constant="60" id="nON-J9-zNy"/>
+                            <constraint firstItem="e5g-Jn-c0l" firstAttribute="leading" secondItem="l3p-X2-8qA" secondAttribute="leading" constant="60" id="s4X-VB-EeF"/>
+                            <constraint firstItem="l3p-X2-8qA" firstAttribute="trailing" secondItem="e5g-Jn-c0l" secondAttribute="trailing" constant="60" id="uCh-87-KT5"/>
                             <constraint firstItem="fZq-YR-vnj" firstAttribute="top" secondItem="zZ5-2Q-YTY" secondAttribute="bottom" constant="10" id="vQK-xg-sZ3"/>
                         </constraints>
                         <connections>
                             <outlet property="messageLabel" destination="zZ5-2Q-YTY" id="3sW-br-eJ6"/>
-                            <outlet property="progressView" destination="2rI-25-Zih" id="E8m-sy-75i"/>
+                            <outlet property="progressView" destination="e5g-Jn-c0l" id="63p-r5-axT"/>
                             <outlet property="startAgainButton" destination="fZq-YR-vnj" id="ZTr-gY-kaw"/>
                         </connections>
                     </view>
