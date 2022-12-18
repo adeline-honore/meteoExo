@@ -35,6 +35,17 @@ class DisplayMeteoViewController: UIViewController {
         
         startProgressView()
         startTimerForCity()
+        
+        tableView.isHidden = true
+        tableView.delegate = self
+        tableView.dataSource = self
+        configureTableView()
+    }
+    
+    private func configureTableView() {
+        let cellNib = UINib(nibName: "MeteoTableViewCell", bundle: .main)
+        tableView.register(cellNib, forCellReuseIdentifier: MeteoTableViewCell.identifier)
+        tableView.rowHeight = UITableView.automaticDimension
     }
     
     // MARK: - ProgressView
@@ -69,6 +80,7 @@ class DisplayMeteoViewController: UIViewController {
             getWeatherInformations(city: City.city50.id)
         case 60:
             timerForCity.invalidate()
+            displayMeteoInfo()
         default:
             break
         }
@@ -82,7 +94,6 @@ class DisplayMeteoViewController: UIViewController {
             switch result {
             case .success(let weather):
                 self.infos.append(self.createInfoMeteo(weather: weather))
-                print(self.infos)
             case .failure(let error):
                 print(error)
             }
@@ -90,7 +101,7 @@ class DisplayMeteoViewController: UIViewController {
     }
     
     private func createInfoMeteo(weather: WeatherStructure) -> InfoMeteo {
-        InfoMeteo(cityName: weather.name, description: weather.weather.first?.description ?? "", temp: "\(kelvinToCelsius(kelvin:weather.main.temp))", icon:getInfoMetoIcon(icon: weather.weather.first?.icon ?? ""))
+        InfoMeteo(cityName: weather.name, description: weather.weather.first?.description ?? "", temp: "\(kelvinToCelsius(kelvin:weather.main.temp))", icon: getInfoMetoIcon(icon: weather.weather.first?.icon ?? ""))
     }
     
     private func kelvinToCelsius(kelvin: Double) -> String {
@@ -98,7 +109,36 @@ class DisplayMeteoViewController: UIViewController {
     }
     
     private func getInfoMetoIcon(icon: String) -> UIImage {
-        guard let image = UIImage(named: String(icon)) else { return UIImage() }
+        guard let image = UIImage(named: String(icon)) else { return UIImage(systemName: "sun.min.fill") ?? UIImage() }
         return image
+    }
+    
+    private func displayMeteoInfo() {
+        tableView.isHidden = false
+        tableView.reloadData()
+    }
+}
+
+extension DisplayMeteoViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        infos.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: MeteoTableViewCell.identifier) as? MeteoTableViewCell ?? MeteoTableViewCell()
+        
+        if infos.isEmpty {
+            print("vide")
+        }
+        
+        cell.configure(infoMeteo: infos[indexPath.row])
+        
+        return cell
     }
 }
