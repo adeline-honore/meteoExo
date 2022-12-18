@@ -29,4 +29,19 @@ enum City {
             return "Lyon"
         }
     }
+    
+    var id: Int {
+        switch self {
+        case .city10:
+            return 2983990
+        case .city20:
+            return 2988506
+        case .city30:
+            return 2990969
+        case .city40:
+            return 3031582
+        case .city50:
+            return 6454573
+        }
+    }
 }

@@ -19,6 +19,7 @@ class DisplayMeteoViewController: UIViewController {
     
     private var timerForCity: Timer = Timer()
     private var timerCityMultiplier = 1
+    private var weatherService: WeatherServiceProtocol = WeatherService(network: Network())
     
     
     // MARK: - Init
@@ -55,20 +56,33 @@ class DisplayMeteoViewController: UIViewController {
                 
         switch interval {
         case 10:
-            print(City.city10)
+            getWeatherInformations(city: City.city10.id)
         case 20:
-            print(City.city20)
+            getWeatherInformations(city: City.city20.id)
         case 30:
-            print(City.city30)
+            getWeatherInformations(city: City.city30.id)
         case 40:
-            print(City.city40)
+            getWeatherInformations(city: City.city40.id)
         case 50:
-            print(City.city50)
+            getWeatherInformations(city: City.city50.id)
         case 60:
             timerForCity.invalidate()
         default:
             break
         }
         timerCityMultiplier += 1
+        
+    }
+    
+    private func getWeatherInformations(city: Int) {
+                
+        weatherService.getData(city: city) { result in
+            switch result {
+            case .success(let weather):
+                print(weather)
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
 }
