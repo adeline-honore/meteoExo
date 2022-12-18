@@ -100,8 +100,8 @@ class DisplayMeteoViewController: UIViewController {
             switch result {
             case .success(let weather):
                 self.infos.append(self.createInfoMeteo(weather: weather))
-            case .failure(let error):
-                print(error)
+            case .failure(_):
+                self.popupMessage(element: .decodingError)
             }
         }
     }
@@ -159,7 +159,7 @@ extension DisplayMeteoViewController: UITableViewDelegate, UITableViewDataSource
         let cell = tableView.dequeueReusableCell(withIdentifier: MeteoTableViewCell.identifier) as? MeteoTableViewCell ?? MeteoTableViewCell()
         
         if infos.isEmpty {
-            print("vide")
+            popupMessage(element: .noData)
         }
         
         cell.configure(infoMeteo: infos[indexPath.row])

@@ -8,8 +8,6 @@
 import Foundation
 
 enum ErrorType: Error {
-    case empty
     case network
-    case multiDecimal
     case decodingError
 }
