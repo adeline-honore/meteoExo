@@ -9,7 +9,7 @@ import UIKit
 
 class DisplayMeteoView: UIView {
     @IBOutlet weak var progressView: UIProgressView!
-    
+    @IBOutlet weak var progressValueLabel: UILabel!
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var startAgainButton: UIButton!
 }

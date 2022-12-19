@@ -48,6 +48,7 @@ class DisplayMeteoViewController: UIViewController {
     private func loadMeteoData() {
         displayMeteoView.progressView.progress = 0
         displayMeteoView.startAgainButton.isHidden = true
+        displayMeteoView.progressValueLabel.text = ""
         
         tableView.isHidden = true
         
@@ -79,6 +80,8 @@ class DisplayMeteoViewController: UIViewController {
         
         let interval = timerCityMultiplier * Int(timerForCity.timeInterval)
                 
+        displayMeteoView.progressValueLabel.text = String((interval * 100) / 60) + " %"
+        
         switch interval {
         case 10:
             getWeatherInformations(city: City.city10.id)
@@ -94,6 +97,7 @@ class DisplayMeteoViewController: UIViewController {
             timerForCity.invalidate()
             displayMeteoView.progressView.isHidden = true
             displayMeteoView.startAgainButton.isHidden = false
+            displayMeteoView.progressValueLabel.text = ""
             displayMeteoInfo()
         default:
             break

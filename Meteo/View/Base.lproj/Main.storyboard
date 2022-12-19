@@ -102,6 +102,15 @@
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="e5g-Jn-c0l">
                                 <rect key="frame" x="60" y="738" width="294" height="4"/>
                             </progressView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GJS-7e-vjg">
+                                <rect key="frame" x="323" y="742" width="31" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="kjV-MM-faB"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="l3p-X2-8qA"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -113,8 +122,10 @@
                             <constraint firstItem="l3p-X2-8qA" firstAttribute="bottom" secondItem="fZq-YR-vnj" secondAttribute="bottom" constant="100" id="7dW-ph-Uls"/>
                             <constraint firstItem="zZ5-2Q-YTY" firstAttribute="top" secondItem="1m2-lv-gJo" secondAttribute="bottom" constant="30" id="DRA-EC-xSh"/>
                             <constraint firstItem="1m2-lv-gJo" firstAttribute="leading" secondItem="l3p-X2-8qA" secondAttribute="leading" constant="30" id="Gqz-jZ-6u5"/>
+                            <constraint firstItem="GJS-7e-vjg" firstAttribute="top" secondItem="e5g-Jn-c0l" secondAttribute="bottom" id="cJP-sF-udf"/>
                             <constraint firstItem="1m2-lv-gJo" firstAttribute="top" secondItem="l3p-X2-8qA" secondAttribute="top" constant="30" id="emo-yf-uyF"/>
                             <constraint firstItem="l3p-X2-8qA" firstAttribute="trailing" secondItem="1m2-lv-gJo" secondAttribute="trailing" constant="30" id="hJd-ED-BhI"/>
+                            <constraint firstItem="l3p-X2-8qA" firstAttribute="trailing" secondItem="GJS-7e-vjg" secondAttribute="trailing" constant="60" id="kxc-sz-IKe"/>
                             <constraint firstItem="l3p-X2-8qA" firstAttribute="trailing" secondItem="fZq-YR-vnj" secondAttribute="trailing" constant="60" id="nON-J9-zNy"/>
                             <constraint firstItem="e5g-Jn-c0l" firstAttribute="leading" secondItem="l3p-X2-8qA" secondAttribute="leading" constant="60" id="s4X-VB-EeF"/>
                             <constraint firstItem="l3p-X2-8qA" firstAttribute="trailing" secondItem="e5g-Jn-c0l" secondAttribute="trailing" constant="60" id="uCh-87-KT5"/>
@@ -122,6 +133,7 @@
                         </constraints>
                         <connections>
                             <outlet property="messageLabel" destination="zZ5-2Q-YTY" id="3sW-br-eJ6"/>
+                            <outlet property="progressValueLabel" destination="GJS-7e-vjg" id="muw-dE-3rn"/>
                             <outlet property="progressView" destination="e5g-Jn-c0l" id="63p-r5-axT"/>
                             <outlet property="startAgainButton" destination="fZq-YR-vnj" id="ZTr-gY-kaw"/>
                         </connections>
