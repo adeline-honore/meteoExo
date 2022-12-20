@@ -20,6 +20,7 @@ class HomeViewController: UIViewController {
 
         homeView = view as? HomeView
         homeView.textView.text = Texts.home.value
+        setButton(homeView.loadButton)
     }
     
 

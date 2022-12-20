@@ -43,10 +43,13 @@ class DisplayMeteoViewController: UIViewController {
         configureTableView()
         
         loadMeteoData()
+        
+        setButton(displayMeteoView.startAgainButton)
     }
     
     private func loadMeteoData() {
         displayMeteoView.progressView.progress = 0
+        displayMeteoView.progressView.isHidden = false
         displayMeteoView.startAgainButton.isHidden = true
         displayMeteoView.progressValueLabel.text = ""
         
@@ -54,6 +57,8 @@ class DisplayMeteoViewController: UIViewController {
         
         startProgressView()
         startTimerForCity()
+        
+        infos = []
     }
     
     private func configureTableView() {
@@ -98,6 +103,7 @@ class DisplayMeteoViewController: UIViewController {
             displayMeteoView.progressView.isHidden = true
             displayMeteoView.startAgainButton.isHidden = false
             displayMeteoView.progressValueLabel.text = ""
+            timerCityMultiplier = 1
             displayMeteoInfo()
         default:
             break
@@ -158,6 +164,8 @@ class DisplayMeteoViewController: UIViewController {
     
     @IBAction func didTapStartAgainButton() {
         loadMeteoData()
+        // je ne suis pas arrivée à re faire partir de zéo la progressView
+        // mais je vous livre quand même le code pour que vous puissiez voir mon travail
     }
 }
 

@@ -17,4 +17,11 @@ extension UIViewController {
     func popupMessage(element: PopUpMessage) {
         displayAlert(message: element.message)
     }
+    
+    func setButton(_ button: UIButton) {
+        button.backgroundColor = .clear
+        button.layer.cornerRadius = button.frame.height / 2
+        button.layer.borderWidth = 3
+        button.layer.borderColor = UIColor.systemTeal.cgColor
+    }
 }
